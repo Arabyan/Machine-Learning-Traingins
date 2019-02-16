@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Sat Feb 16 19:22:00 2019
+
+@author: grigor
+"""
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
 Created on Sat Feb 16 18:09:37 2019
 
 @author: grigor
@@ -30,10 +38,8 @@ X_test = sc_X.transform(X_test)
 # sc_y = StandardScaler()
 # y_train = sc_y.fit_transform(y_train)
 
-#  Fitting Logistic Regression to the Training set
-from sklearn.linear_model import LogisticRegression
-classifier = LogisticRegression(random_state = 0)
-classifier.fit(X_train, y_train)
+#  Fitting classifier to the Training set
+# Create your classifier here 
 
 y_pred = classifier.predict(X_test)
 

@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Sat Feb 16 19:22:00 2019
+
+@author: grigor
+"""
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
 Created on Sat Feb 16 18:09:37 2019
 
 @author: grigor
@@ -30,10 +38,11 @@ X_test = sc_X.transform(X_test)
 # sc_y = StandardScaler()
 # y_train = sc_y.fit_transform(y_train)
 
-#  Fitting Logistic Regression to the Training set
-from sklearn.linear_model import LogisticRegression
-classifier = LogisticRegression(random_state = 0)
+#  Fitting classifier to the Training set
+from sklearn.neighbors import KNeighborsClassifier
+classifier = KNeighborsClassifier(n_neighbors = 5, metric = 'minkowski', p = 2)
 classifier.fit(X_train, y_train)
+# Create your classifier here 
 
 y_pred = classifier.predict(X_test)
 
@@ -53,7 +62,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Logistic Regression (Training set)')
+plt.title('K-NN (Training set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
@@ -71,7 +80,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Logistic Regression (test set)')
+plt.title('K-NN (test set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
